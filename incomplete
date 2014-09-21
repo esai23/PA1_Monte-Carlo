@@ -1,0 +1,42 @@
+#include<iostream>
+#include<cmath>
+#include <cstdlib>
+#include <ctime>
+#include <iomanip> 
+#include <string>
+using namespace std;
+
+int main() 
+{
+	srand (time(0));
+
+	cout << "Enter the number of initial coins: \n";
+	int coins;
+	cin >> coins;
+
+	cout << "Enter the probability of heads(Use a decimal from 0 to 1): \n";
+	double heads;
+	cin >> heads;
+
+	cout << "Enter the number of game simulations to perform: \n";
+	int games;
+	cin >> games;
+
+	double tails = 1 - heads; 
+
+	cout << setw(20) << "Player 1" << setw(20) << "Player 2" << setw(20) << "Player 3" << endl;
+
+	for (int i = 0; i <= games; i++)
+	{
+		cout << "Round " << i << ":" << endl;
+		
+			for (int j = 0; j <= coins; j ++)
+			{
+				
+		  }
+	}
+
+
+
+return 0;
+}
