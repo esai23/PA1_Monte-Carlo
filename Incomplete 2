@@ -1,0 +1,50 @@
+#include<iostream>
+#include<cmath>
+#include <cstdlib>
+#include <ctime>
+#include <iomanip> 
+#include <string>
+using namespace std;
+
+int main() 
+{
+	srand (time(0));
+
+	//number of coins input 
+	cout << "Enter the number of coins: \n";
+	int coins;
+	cin >> coins;
+
+	//probability of landing heads input
+	cout << "Enter the probability of heads(Use a decimal from 0 to 1): \n";
+	double heads;
+	cin >> heads;
+
+	//number of game simulations input
+	cout << "Enter the number of game simulations to perform: \n";
+	int games;
+	cin >> games;
+
+	//declare and initialize other variables 
+	double tails = 1 - heads; 
+	double r = rand() * 1.0/RAND_MAX; 
+	int p1_coins = coins;
+	int p2_coins = coins;
+	int p3_coins = coins;
+	
+
+	// create columns 
+	cout << setw(5) << "Initial # of Coins" << setw(21) << "Probability of Coin" << setw(19) 
+	<< "Game Simulations" << setw(19) << "Avg. # of Turns" << endl;
+
+
+
+
+
+
+
+	cout << setw(10) << coins << setw(20) << heads << setw(20) << games; 
+
+	
+return 0;
+}
