@@ -1,0 +1,102 @@
+#include <iostream>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main() 
+{
+    srand (time(0));
+
+    //number of coins input
+    cout << "Enter the number of coins: \n";
+    int coins;
+    cin >> coins;
+
+    //probability of landing heads input
+    cout << "Enter the probability of heads(Use a decimal from 0 to 1): \n";
+    double heads;
+    cin >> heads;
+
+    //number of game simulations input
+    cout << "Enter the number of game simulations to perform: \n";
+    int games;
+    cin >> games;
+
+    //declare and initialize other variables
+    int coin_counter[3];
+    int flips[3];
+    int turns = 0;
+    int total_turns = 0;
+    int p1;
+    int p2;
+    int p3;
+
+    for (int i = 0; i < games; games++) 
+	{
+        	turns = 0;
+
+        coin_counter[0] = coins;
+        coin_counter[1] = coins;
+        coin_counter[2] = coins;
+
+        while (coin_counter[0] > 0 && coin_counter[1] > 0 && coin_counter[2] > 0) 
+	    {
+                double r = rand() * 1.0/RAND_MAX;
+                if (r >= heads) 
+		{
+                    p1 = 1;
+                } else 
+		{
+                    p1 = 0;
+                }
+            
+                double s = rand() * 1.0/RAND_MAX;
+                if (s >= heads) 
+		{
+                    p2 = 1;
+                } else 
+		{
+                    p2 = 0;
+                }
+            
+                double t = rand() * 1.0/RAND_MAX;
+                if (t >= heads) 
+		{
+                    p3 = 1;
+                } else 
+		{
+                    p3 = 0;
+                }
+
+            if (p1 != p2 && p1 != p3) 
+	    {
+                flips[0] = 2;
+                flips[1] = -1;
+                flips[2] = -1;
+            }
+            if (p2 != p1 && p2 != p3) 
+	    {
+                flips[1] = 2;
+                flips[0] = -1;
+                flips[2] = -1;
+            }
+            if (p3 != p1 && p3 != p2) 
+	    {
+                flips[2] = 2;
+                flips[0] = -1;
+                flips[1] = -1;
+            }
+
+            coin_counter[0] = coin_counter[0] + flips[0];
+            coin_counter[1] = coin_counter[1] + flips[1];
+            coin_counter[2] = coin_counter[2] + flips[2];
+		turns = turns + 1;
+	}
+		total_turns = total_turns + turns;
+		
+	}
+		double average = (double)total_turns/games;
+		cout << average;
+        return 0;
+}
